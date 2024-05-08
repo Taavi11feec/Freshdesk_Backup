@@ -48,11 +48,11 @@ Write-Host "Download started"
 $response = Invoke-WebRequest -Uri $downloadUrl -ContentType "application/json" -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -OutFile $finalPath
 Write-Host "Download finished"
 
-# Delete backups older then specified days.
+# Get files older then specified days
 $oldBackups = Get-ChildItem -Path $path | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-$dataRetention) }
 Write-Host "Delete files older then $dataRetention in $path"
 
-# Dateien löschen
+# Delete files older then specified days
 $oldBackups | ForEach-Object {
     $_ | Remove-Item -Force
     Write-Host "$($_.FullName) succesfull deleted" 
