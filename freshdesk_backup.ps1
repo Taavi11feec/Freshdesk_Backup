@@ -6,7 +6,7 @@ $path = ".\" #end it with a \
 $dataRetention = 14 # keep files for 14 days
 
 # API URL
-$url = "https://infosys-kommunal.freshdesk.com/api/v2/account/export"
+$url = "https://your_freshdesk.freshdesk.com/api/v2/account/export"
 
 # User authentication Freshdesk API
 $username = "Your API Key"
